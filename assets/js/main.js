@@ -51,12 +51,12 @@ for (let i = 0; i < carousel.length; i++) {
 }
 const GameEl = document.querySelector(".carousel")
 
-carousel.forEach((game, index) => {
+carousel.forEach((game) => {
     GameEl.innerHTML += `
     <div class="poster">
-    <h2 class="game_title">${game.title}</h2>
-    <img class="img-fluid" src="./assets/${game.image}">
-    <p class="game_description">${game.description}</p>
+        <h2 class="game_title">${game.title}</h2>
+        <img class="img-fluid" src="./assets/${game.image}">
+        <p class="game_description">${game.description}</p>
     </div>`;
 });
 

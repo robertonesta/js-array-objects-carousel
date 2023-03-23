@@ -17,3 +17,7 @@
 #next{
     bottom: 1%;
 }
+
+.carousel > .poster:not(.active){
+    display: none;
+}
