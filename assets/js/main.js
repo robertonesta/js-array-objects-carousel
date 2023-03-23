@@ -5,8 +5,8 @@ descrizione
 Creare un carosello come nella foto allegata.*/
 const containerEL = document.querySelector(".container")
 
-const prevEl = document.getElementById("prev")
-const nextEl = document.getElementById("next")
+//const prevEl = document.getElementById("#prev")
+//const nextEl = document.getElementById("#next")
 
 // array di oggetti
 
@@ -64,38 +64,40 @@ const carouselPosters = document.querySelectorAll(".poster");
 let activeGame = 0;
 carouselPosters[activeGame].classList.add("active")
 
-prevEl.addEventListener("click", function () {
-    activeGame = prevGame(carouselPosters, activeGame)
-})
+const prevEl = document.querySelector(".prev")
+const nextEl = document.querySelector(".next")
 
-nextEl.addEventListener("click", function () {
-    activeGame = nextGame(carouselPosters, activeGame)
-})
-
-function prevGame(gamesDom, activeGame){
-    gamesDom[activeGame].classList.remove("active");
-    if (activeGame === 0){
-        activeGame = gamesDom.length - 1;
+prevEl.addEventListener("click", function() {
+    console.log(`ciao`)
+    currentGame = carouselPosters[activeGame]
+    console.log(currentGame)
+    currentGame.classList.remove("active")
+    if (activeGame == 0) {
+        activeGame = carouselPosters.length - 1;
     } else {
-        activeGame--;
+        activeGame--
+        console.log(activeGame)
     }
-    
-    gamesDom[activeGame].classList.add("active");
-    return activeGame;
-}
+    const nextGame = carouselPosters[activeGame]
+    nextGame.classList.add("active")
+})
+nextEl.addEventListener("click", function() {
 
-function nextGame(gamesDom, activeGame){
-    gamesDom[activeGame].classList.remove("active");
-    if(activeGame === gamesDom.length - 1) {
-        activeGame = 0;
-    } else{
-        activeGame++;
+    const currentGame = carouselPosters[activeGame]
+    console.log(currentpic);
+    //remove the active class from the current pic
+    currentGame.classList.remove('active')
+
+    if (activeGame === carouselPosters.length -1) {
+        activeGame = 0
+    } else {
+    //increment the value of the active image
+    activeGame++
+    console.log(activeGame)
     }
-
-    gamesDom[activeGame].classList.add("active");
-    return activeGame;
-}
-
+})
+    const nextGame = carouselPosters[activeGame]
+    nextGame.classList.add("active")
 
 
 

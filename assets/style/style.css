@@ -4,17 +4,17 @@
     box-sizing: border-box;
 }
 
-#prev, #next{
+.prev, .next{
     left: 47%;
     border: none;
     border-radius: 50%;
     padding: 0.125rem 0.5rem;
 }
 
-#prev{
+.prev{
     top: 1%;
 }
-#next{
+.next{
     bottom: 1%;
 }
 
