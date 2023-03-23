@@ -54,7 +54,7 @@ const GameEl = document.querySelector(".carousel")
 carousel.forEach((game) => {
     GameEl.innerHTML += `
     <div class="poster">
-        <h2 class="game_title">${game.title}</h2>
+        <h2 class="game_title text-center">${game.title}</h2>
         <img class="img-fluid" src="./assets/${game.image}">
         <p class="game_description">${game.description}</p>
     </div>`;
@@ -65,11 +65,9 @@ let activeGame = 0;
 carouselPosters[activeGame].classList.add("active")
 
 const prevEl = document.querySelector(".prev")
-const nextEl = document.querySelector(".next")
 
 prevEl.addEventListener("click", function() {
-    console.log(`ciao`)
-    currentGame = carouselPosters[activeGame]
+    const currentGame = carouselPosters[activeGame]
     console.log(currentGame)
     currentGame.classList.remove("active")
     if (activeGame == 0) {
@@ -81,23 +79,25 @@ prevEl.addEventListener("click", function() {
     const nextGame = carouselPosters[activeGame]
     nextGame.classList.add("active")
 })
+const nextEl = document.querySelector(".next")
+
 nextEl.addEventListener("click", function() {
-
     const currentGame = carouselPosters[activeGame]
-    console.log(currentpic);
+    console.log(currentGame);
     //remove the active class from the current pic
-    currentGame.classList.remove('active')
+    currentGame.classList.remove("active")
 
-    if (activeGame === carouselPosters.length -1) {
-        activeGame = 0
-    } else {
+    if (activeGame == carouselPosters.length - 1) {
+        activeGame = 0;
+        } else {
     //increment the value of the active image
     activeGame++
     console.log(activeGame)
     }
-})
     const nextGame = carouselPosters[activeGame]
     nextGame.classList.add("active")
+})
+
 
 
 
