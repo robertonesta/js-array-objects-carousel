@@ -8,7 +8,6 @@ const containerEL = document.querySelector(".container")
 const prev = document.getElementById("prev")
 const next = document.getElementById("next")
 
-let activeGame = 0;
 // array di oggetti
 
 const carousel = [
@@ -54,12 +53,13 @@ const GameEl = document.querySelector(".carousel")
 
 carousel.forEach((game, index) => {
     GameEl.innerHTML += `
-    <div class="single_game">
+    <div class="poster">
     <h2 class="game_title">${game.title}</h2>
-    <img class="img-fluid" src="./assets/${game.image}" alt="Game ${index + 1}">
+    <img class="img-fluid" src="./assets/${game.image}">
     <p class="game_description">${game.description}</p>
     </div>`;
-  });
+});
 
-const carouselPosters = document.querySelectorAll(".single_game")
-carouselPosters[0].classList.add(".active")
+const carouselPosters = document.querySelectorAll(".poster");
+let activeGame = 0;
+carouselPosters[activeGame].classList.add("active")
