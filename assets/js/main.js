@@ -3,6 +3,7 @@ url dell’immagine
 titolo
 descrizione
 Creare un carosello come nella foto allegata.*/
+const containerEL = document.querySelector(".container")
 
 // array di oggetti
 
@@ -34,3 +35,15 @@ const carousel = [
         description: "Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay."
     },
 ]
+
+console.log(carousel);
+
+for (let i = 0; i < carousel.length; i++) {
+    const game = carousel[i];
+    console.log(game);
+    console.log(`image: ${game.image}`);
+    console.log(`title: ${game.title} `);
+    console.log(`description: ${game.description}`);
+    
+}
+
