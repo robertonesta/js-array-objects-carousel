@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-.carousel img:not(.active){
-    display: none;
-}
-
 #prev, #next{
     left: 47%;
     border: none;

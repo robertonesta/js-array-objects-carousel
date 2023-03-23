@@ -5,6 +5,10 @@ descrizione
 Creare un carosello come nella foto allegata.*/
 const containerEL = document.querySelector(".container")
 
+const prev = document.getElementById("prev")
+const next = document.getElementById("next")
+
+let activeGame = 0;
 // array di oggetti
 
 const carousel = [
@@ -40,10 +44,22 @@ console.log(carousel);
 
 for (let i = 0; i < carousel.length; i++) {
     const game = carousel[i];
-    console.log(game);
-    console.log(`image: ${game.image}`);
-    console.log(`title: ${game.title} `);
-    console.log(`description: ${game.description}`);
+    //console.log(game);
+    //console.log(`image: ${game.image}`);
+    //console.log(`title: ${game.title} `);
+    //console.log(`description: ${game.description}`);
     
 }
+const GameEl = document.querySelector(".carousel")
 
+carousel.forEach((game, index) => {
+    GameEl.innerHTML += `
+    <div class="single_game">
+    <h2 class="game_title">${game.title}</h2>
+    <img class="img-fluid" src="./assets/${game.image}" alt="Game ${index + 1}">
+    <p class="game_description">${game.description}</p>
+    </div>`;
+  });
+
+const carouselPosters = document.querySelectorAll(".single_game")
+carouselPosters[0].classList.add(".active")
