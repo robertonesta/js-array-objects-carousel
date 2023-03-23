@@ -5,8 +5,8 @@ descrizione
 Creare un carosello come nella foto allegata.*/
 const containerEL = document.querySelector(".container")
 
-const prev = document.getElementById("prev")
-const next = document.getElementById("next")
+const prevEl = document.getElementById("prev")
+const nextEl = document.getElementById("next")
 
 // array di oggetti
 
@@ -63,3 +63,35 @@ carousel.forEach((game) => {
 const carouselPosters = document.querySelectorAll(".poster");
 let activeGame = 0;
 carouselPosters[activeGame].classList.add("active")
+
+prevEl.addEventListener("click", () => {
+    activeGame = prevGame(carouselPosters, activeGame)
+})
+nextEl.addEventListener("click", () => {
+    activeGame = nextGame(carouselPosters, activeGame)
+})
+
+function prevGame(gamesDom, activeGame){
+    gamesDom[activeGame].classList.remove("active");
+    if (activeGame === 0){
+        activeGame = gamesDom.length - 1
+    } else {
+        activeGame--;
+    }
+    gamesDom[activeGame].classList.add("active");
+    return activeGame;
+}
+
+function nextGame(gamesDom, activeGame){
+    gamesDom[activeGame].classList.remove("active");
+    if(activeGame === gamesDom.length - 1) {
+        activeGame = 0;
+    } else{
+        activeGame++;
+    }
+    
+    gamesDom[activeGame].classList.add("active");
+    return activeGame;
+}
+
+
