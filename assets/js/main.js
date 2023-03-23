@@ -64,20 +64,22 @@ const carouselPosters = document.querySelectorAll(".poster");
 let activeGame = 0;
 carouselPosters[activeGame].classList.add("active")
 
-prevEl.addEventListener("click", () => {
+prevEl.addEventListener("click", function () {
     activeGame = prevGame(carouselPosters, activeGame)
 })
-nextEl.addEventListener("click", () => {
+
+nextEl.addEventListener("click", function () {
     activeGame = nextGame(carouselPosters, activeGame)
 })
 
 function prevGame(gamesDom, activeGame){
     gamesDom[activeGame].classList.remove("active");
     if (activeGame === 0){
-        activeGame = gamesDom.length - 1
+        activeGame = gamesDom.length - 1;
     } else {
         activeGame--;
     }
+    
     gamesDom[activeGame].classList.add("active");
     return activeGame;
 }
@@ -89,9 +91,11 @@ function nextGame(gamesDom, activeGame){
     } else{
         activeGame++;
     }
-    
+
     gamesDom[activeGame].classList.add("active");
     return activeGame;
 }
+
+
 
 
