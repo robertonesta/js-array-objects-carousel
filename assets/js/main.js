@@ -66,7 +66,8 @@ carouselPosters[activeGame].classList.add("active")
 
 const prevEl = document.querySelector(".prev")
 
-prevEl.addEventListener("click", function() {
+prevEl.addEventListener("click", prev)
+function prev(){
     const currentGame = carouselPosters[activeGame]
     console.log(currentGame)
     currentGame.classList.remove("active")
@@ -78,10 +79,12 @@ prevEl.addEventListener("click", function() {
     }
     const nextGame = carouselPosters[activeGame]
     nextGame.classList.add("active")
-})
+}
+
 const nextEl = document.querySelector(".next")
 
-nextEl.addEventListener("click", function() {
+nextEl.addEventListener("click", next)
+function next() {
     const currentGame = carouselPosters[activeGame]
     console.log(currentGame);
     //remove the active class from the current pic
@@ -96,8 +99,14 @@ nextEl.addEventListener("click", function() {
     }
     const nextGame = carouselPosters[activeGame]
     nextGame.classList.add("active")
+}
+
+let autoplay;
+setInterval(next, 1000);
+
+const revertEl = document.querySelector(".revert")
+
+revertEl.addEventListener("click", function(){
+    clearInterval(autoplay)
+    autoplay=setInterval(prev, 1000)
 })
-
-
-
-
